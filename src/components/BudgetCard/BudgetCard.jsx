@@ -36,7 +36,7 @@ export default function BudgetCard(props){
 
                     </div>
                     <div className="col-4">
-                        <button className="btn btn-outline-primary">Add Expense</button>
+                        <button className="btn btn-outline-primary" onClick={props.onAddExpenseClick}>Add Expense</button>
                     </div>
                     <div className="col-4">
                         <button className="btn btn-outline-secondary">View Expenses</button>
@@ -48,10 +48,10 @@ export default function BudgetCard(props){
 }
 
 function getProgressBarVariant(amount,max){
-    const ratio=amount/max
+    const ratio=amount/max;
     if(ratio < 0.5){
         return "progress-bar"
-    }else if(ratio < 0.75){
+    }else if(ratio < 1){
         return "progress-bar bg-warning"
     }else{
         return "progress-bar bg-danger"

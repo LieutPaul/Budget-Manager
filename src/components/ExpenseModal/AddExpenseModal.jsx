@@ -14,7 +14,7 @@ export default function AddExpenseModal(props){
         addExpense({
             description : descriptionRef.current.value,
             amount: parseFloat(amountRef.current.value),
-            budget : budgetIDRef.current.value
+            budgetID : budgetIDRef.current.value
         });
         props.handleClose();
     }

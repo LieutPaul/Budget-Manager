@@ -5,12 +5,22 @@ import AddBudgetModal from './components/BudgetModal/AddBudgetModal';
 import AddExpenseModal from './components/ExpenseModal/AddExpenseModal'
 import { useBudgets } from './contexts/BudgetsContext';
 function App() {
+
   const [showBudgetModal,setShowBudgetModal] = React.useState(false);
   const [showExpenseModal,setShowExpenseModal] = React.useState(false);
+  const [addExpenseModalBudgetID,setAddExpenseModalBudgetID] = React.useState(undefined);
+
+  function openAddExpenseModal(budgetID){
+    setShowExpenseModal(true);
+    setAddExpenseModalBudgetID(budgetID);
+  }
+
   const {budgets,getBudgetExpenses} = useBudgets();
 
   return (
     <>
+      <AddBudgetModal show={showBudgetModal} handleClose={()=> setShowBudgetModal(false)}/>
+      <AddExpenseModal defaultBudgetID = {addExpenseModalBudgetID} show={showExpenseModal} handleClose={()=> setShowExpenseModal(false)}/>
       <div className="container" style={{"marginTop":"15px"}}>
         <div className="row heading">
 
@@ -36,20 +46,17 @@ function App() {
 
             let amount=0;
             const expenses = getBudgetExpenses(budget.id);
-            console.log(expenses)
             for(var i=0;i<expenses.length;i++){
               amount+=expenses[i].amount
             }
-
+            console.log(amount)
             return(
-              <BudgetCard key={budget.id} name={budget.name} amount={amount} max={budget.max}/> //budget.id is being set in addBudget function in useBudgets()
+              <BudgetCard onAddExpenseClick={()=>openAddExpenseModal(budget.id)} key={budget.id} name={budget.name} amount={amount} max={budget.max}/> //budget.id is being set in addBudget function in useBudgets()
             )
 
           })}
         </div>
       </div>
-      <AddBudgetModal show={showBudgetModal} handleClose={()=> setShowBudgetModal(false)}/>
-      <AddExpenseModal show={showExpenseModal} handleClose={()=> setShowExpenseModal(false)}/>
     </>
   );
 }

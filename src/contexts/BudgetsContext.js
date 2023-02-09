@@ -29,13 +29,14 @@ export const BudgetsProvider = ({children}) =>{
     const [expenses,setExpenses] = useLocalStorage("expenses",[]);
     
     function getBudgetExpenses(budgetID){
-        let expenses=[];
+        let my_expenses=[];
+        console.log(expenses)
         for(var i=0;i<expenses.length;i++){
-            if(expenses.budgetID === budgetID){
-                expenses.push(expenses[i]);
+            if(expenses[i].budgetID === budgetID){
+                my_expenses.push(expenses[i]);
             }
         }
-        return expenses;
+        return my_expenses;
     }
 
     function addExpense({description,amount,budgetID}){
