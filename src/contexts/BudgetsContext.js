@@ -30,7 +30,7 @@ export const BudgetsProvider = ({children}) =>{
     
     function getBudgetExpenses(budgetID){
         for(var i=0;i<expenses.length;i++){
-            if(expenses.budgetID==budgetID){
+            if(expenses.budgetID === budgetID){
                 return expenses[i];
             }
         }
