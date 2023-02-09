@@ -36,9 +36,7 @@ export default function BudgetCard(props){
 
                     </div>
                     <div className="col-4">
-                        <button className="btn btn-outline-primary">
-                            <span style={{"overflowX":"scroll"}}>Add Expense</span>
-                        </button>
+                        <button className="btn btn-outline-primary">Add Expense</button>
                     </div>
                     <div className="col-4">
                         <button className="btn btn-outline-secondary">View Expenses</button>
