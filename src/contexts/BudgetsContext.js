@@ -4,22 +4,6 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const BudgetsContext = React.createContext();
 
-/* Schemas: 
-Budget : {
-    id: ,
-    name: ,
-    max: 
-}
-
-Expense: {
-    id: ,
-    budgetID: ,
-    amount: ,
-    description: 
-
-}
-*/ 
-
 export function useBudgets(){
     return React.useContext(BudgetsContext);
 }
@@ -30,7 +14,6 @@ export const BudgetsProvider = ({children}) =>{
     
     function getBudgetExpenses(budgetID){
         let my_expenses=[];
-        console.log(expenses)
         for(var i=0;i<expenses.length;i++){
             if(expenses[i].budgetID === budgetID){
                 my_expenses.push(expenses[i]);

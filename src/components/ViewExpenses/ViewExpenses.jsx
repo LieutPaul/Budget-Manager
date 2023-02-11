@@ -4,9 +4,10 @@ import {Modal} from "react-bootstrap";
 import { useBudgets } from "../../contexts/BudgetsContext";
 
 export default function ViewExpenses(props){
+
     const {deleteExpense,deleteBudget,getBudgetExpenses} = useBudgets();
     const expenses = getBudgetExpenses(props.id);
-    console.log(expenses);
+    
     return(
         <Modal show={props.show} onHide={props.handleClose}>
                 
@@ -20,11 +21,9 @@ export default function ViewExpenses(props){
 
                 <Modal.Body>
                         <div className="container-fluid">
-                            
                                 {expenses.map((expense)=>{
                                     return (
                                         <div className="row mb-2" key={expense.id}>
-                                            
                                                 <div className="col-6" style={{"textAlign":"left"}}>
                                                     {expense.description}
                                                 </div>
@@ -33,12 +32,9 @@ export default function ViewExpenses(props){
                                                         deleteExpense({id:expense.id})
                                                     }}>&times;</button>
                                                 </div>
-                                                
-                                            
                                         </div>
                                     )
                                 })}
-                            
                         </div>
                 </Modal.Body>
 
