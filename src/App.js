@@ -50,8 +50,9 @@ function App() {
               amount+=expenses[i].amount
             }
             console.log(amount)
+
             return(
-              <BudgetCard onAddExpenseClick={()=>openAddExpenseModal(budget.id)} key={budget.id} name={budget.name} amount={amount} max={budget.max}/> //budget.id is being set in addBudget function in useBudgets()
+              <BudgetCard onAddExpenseClick={()=>openAddExpenseModal(budget.id)} id={budget.id} key={budget.id} name={budget.name} amount={amount} max={budget.max}/> //budget.id is being set in addBudget function in useBudgets()
             )
 
           })}
