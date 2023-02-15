@@ -52,7 +52,7 @@ function App() {
 
             return(
               <BudgetCard onAddExpenseClick={()=>openAddExpenseModal(budget.id)} id={budget.id} key={budget.id} 
-               amount={amount} max={budget.max}/> //budget.id is being set in addBudget function in useBudgets()
+               amount={amount} max={budget.max} name={budget.name}/> //budget.id is being set in addBudget function in useBudgets()
             )
 
           })}
